@@ -3,5 +3,3 @@ pymongo
 datetime
 prettytable
 matplotlib
-base64
-os
