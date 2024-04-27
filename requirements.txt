@@ -4,6 +4,5 @@ hashlib==20081119
 datetime==4.3
 prettytable==2.4.0
 matplotlib==3.5.1
-io==0.0.1
 base64==0.1.0
 os==0.1.1
