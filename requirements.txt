@@ -1,8 +1,8 @@
-Flask==2.1.0
-pymongo==4.1.0
-hashlib==20081119
-datetime==4.3
-prettytable==2.4.0
-matplotlib==3.5.1
-base64==0.1.0
-os==0.1.1
+Flask
+pymongo
+hashlib
+datetime
+prettytable
+matplotlib
+base64
+os
