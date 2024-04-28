@@ -4,4 +4,3 @@ datetime
 prettytable
 matplotlib
 requests
-os
