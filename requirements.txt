@@ -3,3 +3,5 @@ pymongo
 datetime
 prettytable
 matplotlib
+requests
+os
