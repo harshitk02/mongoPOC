@@ -175,7 +175,7 @@ def check_balance():
     return jsonify(response), 200
 
 @app.route('/check_balance_apay', methods=['POST'])
-def check_balance_tg():
+def check_balance_apay():
     data = request.json
     if 'employeeId' not in data:
         return jsonify({'error': 'employeeId is missing from request body'}), 400
