@@ -174,6 +174,25 @@ def check_balance():
     
     return jsonify(response), 200
 
+@app.route('/check_balance_apay', methods=['POST'])
+def check_balance_tg():
+    data = request.json
+    if 'employeeId' not in data:
+        return jsonify({'error': 'employeeId is missing from request body'}), 400
+    
+    employee_id = data['employeeId']
+    
+    # Check if user exists in User_Wallet collection
+    user = user_wallet_collection.find_one({'employeeId': employee_id})
+    if not user:
+        return jsonify({'error': 'User does not exist'}), 404
+    
+    # Retrieve all transactions for the user from Coin_Transactions collection
+    user_transactions = coin_transaction_collection.find({'employeeId': employee_id}).sort('timestamp', -1)
+    
+    # Get the last transaction and calculate the final balance
+    last_transaction = user_transactions[0]
+    return last_transaction
     
 @app.route('/check_balance_tg', methods=['POST'])
 def check_balance_tg():
