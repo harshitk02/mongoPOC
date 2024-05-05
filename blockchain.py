@@ -190,9 +190,10 @@ def check_balance_apay():
     # Retrieve all transactions for the user from Coin_Transactions collection
     user_transactions = coin_transaction_collection.find({'employeeId': employee_id}).sort('timestamp', -1)
     
-    # Get the last transaction and calculate the final balance
+    # Get the last transaction and remove the ObjectId field
     last_transaction = user_transactions[0]
-    return last_transaction
+    last_transaction['_id'] = str(last_transaction['_id'])  # Convert ObjectId to string
+    return jsonify(last_transaction)
     
 @app.route('/check_balance_tg', methods=['POST'])
 def check_balance_tg():
